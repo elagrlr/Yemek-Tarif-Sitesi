@@ -1,0 +1,720 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="YemekTarifleriModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'YemekTarifleri.dbo.Blog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BlogCategory" Type="int" />
+          <Property Name="Header" Type="varchar" MaxLength="50" />
+          <Property Name="Content_" Type="varchar(max)" />
+          <Property Name="BlogImg" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="BlogCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="50" />
+          <Property Name="CategoryImg" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'YemekTarifleri.dbo.Comments' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="RecipeId" Type="int" />
+          <Property Name="Comment" Type="varchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'YemekTarifleri.dbo.FindRecipe' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="FindRecipe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IngredientId" Type="int" />
+          <Property Name="RecipeId" Type="int" />
+        </EntityType>
+        <EntityType Name="Ingredients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IngredientName" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="MenuCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="50" />
+          <Property Name="MenuImg" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'YemekTarifleri.dbo.Menus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Menus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuName" Type="varchar" MaxLength="50" />
+          <Property Name="MenuCategory" Type="int" />
+          <Property Name="Menu1Id" Type="int" />
+          <Property Name="Menu2Id" Type="int" />
+          <Property Name="Menu3Id" Type="int" />
+          <Property Name="Menu4Id" Type="int" />
+          <Property Name="Menu5Id" Type="int" />
+        </EntityType>
+        <EntityType Name="RecipeCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Reicpes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecipeName" Type="varchar" MaxLength="50" />
+          <Property Name="C_Id" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="PrepTime" Type="varchar" MaxLength="20" />
+          <Property Name="CookTime" Type="varchar" MaxLength="20" />
+          <Property Name="Person" Type="nvarchar" MaxLength="20" />
+          <Property Name="Difficulty" Type="varchar" MaxLength="10" />
+          <Property Name="Calories" Type="int" />
+          <Property Name="RecipeImg" Type="nvarchar" MaxLength="100" />
+          <Property Name="Ingredienst" Type="varchar(max)" />
+          <Property Name="RecipeDetails" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="50" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Email_" Type="varchar" MaxLength="50" />
+          <Property Name="Password_" Type="varchar" MaxLength="20" />
+          <Property Name="ProfilePhoto" Type="varchar" MaxLength="100" />
+          <Property Name="BirthDate" Type="date" />
+          <Property Name="Role" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_Blog_BlogCategories">
+          <End Role="BlogCategories" Type="Self.BlogCategories" Multiplicity="0..1" />
+          <End Role="Blog" Type="Self.Blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Blog">
+              <PropertyRef Name="BlogCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Reicpes">
+          <End Role="Reicpes" Type="Self.Reicpes" Multiplicity="0..1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reicpes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FindRecipe_Ingredients">
+          <End Role="Ingredients" Type="Self.Ingredients" Multiplicity="0..1" />
+          <End Role="FindRecipe" Type="Self.FindRecipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FindRecipe">
+              <PropertyRef Name="IngredientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FindRecipe_Reicpes">
+          <End Role="Reicpes" Type="Self.Reicpes" Multiplicity="0..1" />
+          <End Role="FindRecipe" Type="Self.FindRecipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reicpes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FindRecipe">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Menus_MenuCategories">
+          <End Role="MenuCategories" Type="Self.MenuCategories" Multiplicity="0..1" />
+          <End Role="Menus" Type="Self.Menus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Menus">
+              <PropertyRef Name="MenuCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reicpes_RecipeCategories">
+          <End Role="RecipeCategories" Type="Self.RecipeCategories" Multiplicity="0..1" />
+          <End Role="Reicpes" Type="Self.Reicpes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecipeCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reicpes">
+              <PropertyRef Name="C_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reicpes_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Reicpes" Type="Self.Reicpes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reicpes">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="YemekTarifleriModelStoreContainer">
+          <EntitySet Name="BlogCategories" EntityType="Self.BlogCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ingredients" EntityType="Self.Ingredients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MenuCategories" EntityType="Self.MenuCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecipeCategories" EntityType="Self.RecipeCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reicpes" EntityType="Self.Reicpes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Blog" EntityType="Self.Blog" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Blog].[Id] AS [Id], 
+    [Blog].[BlogCategory] AS [BlogCategory], 
+    [Blog].[Header] AS [Header], 
+    [Blog].[Content_] AS [Content_], 
+    [Blog].[BlogImg] AS [BlogImg]
+    FROM [dbo].[Blog] AS [Blog]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Comments" EntityType="Self.Comments" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Comments].[Id] AS [Id], 
+    [Comments].[UserId] AS [UserId], 
+    [Comments].[RecipeId] AS [RecipeId], 
+    [Comments].[Comment] AS [Comment]
+    FROM [dbo].[Comments] AS [Comments]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="FindRecipe" EntityType="Self.FindRecipe" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [FindRecipe].[Id] AS [Id], 
+    [FindRecipe].[IngredientId] AS [IngredientId], 
+    [FindRecipe].[RecipeId] AS [RecipeId]
+    FROM [dbo].[FindRecipe] AS [FindRecipe]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Menus" EntityType="Self.Menus" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Menus].[Id] AS [Id], 
+    [Menus].[MenuName] AS [MenuName], 
+    [Menus].[MenuCategory] AS [MenuCategory], 
+    [Menus].[Menu1Id] AS [Menu1Id], 
+    [Menus].[Menu2Id] AS [Menu2Id], 
+    [Menus].[Menu3Id] AS [Menu3Id], 
+    [Menus].[Menu4Id] AS [Menu4Id], 
+    [Menus].[Menu5Id] AS [Menu5Id]
+    FROM [dbo].[Menus] AS [Menus]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Blog_BlogCategories" Association="Self.FK_Blog_BlogCategories">
+            <End Role="BlogCategories" EntitySet="BlogCategories" />
+            <End Role="Blog" EntitySet="Blog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Reicpes" Association="Self.FK_Comments_Reicpes">
+            <End Role="Reicpes" EntitySet="Reicpes" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Users" Association="Self.FK_Comments_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FindRecipe_Ingredients" Association="Self.FK_FindRecipe_Ingredients">
+            <End Role="Ingredients" EntitySet="Ingredients" />
+            <End Role="FindRecipe" EntitySet="FindRecipe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FindRecipe_Reicpes" Association="Self.FK_FindRecipe_Reicpes">
+            <End Role="Reicpes" EntitySet="Reicpes" />
+            <End Role="FindRecipe" EntitySet="FindRecipe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Menus_MenuCategories" Association="Self.FK_Menus_MenuCategories">
+            <End Role="MenuCategories" EntitySet="MenuCategories" />
+            <End Role="Menus" EntitySet="Menus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reicpes_RecipeCategories" Association="Self.FK_Reicpes_RecipeCategories">
+            <End Role="RecipeCategories" EntitySet="RecipeCategories" />
+            <End Role="Reicpes" EntitySet="Reicpes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reicpes_Users" Association="Self.FK_Reicpes_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Reicpes" EntitySet="Reicpes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="YemekTarifleriModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BlogCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryImg" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Blog" Relationship="Self.FK_Blog_BlogCategories" FromRole="BlogCategories" ToRole="Blog" />
+        </EntityType>
+        <EntityType Name="Ingredients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IngredientName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FindRecipe" Relationship="Self.FK_FindRecipe_Ingredients" FromRole="Ingredients" ToRole="FindRecipe" />
+        </EntityType>
+        <EntityType Name="MenuCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MenuImg" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Menus" Relationship="Self.FK_Menus_MenuCategories" FromRole="MenuCategories" ToRole="Menus" />
+        </EntityType>
+        <EntityType Name="RecipeCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Reicpes" Relationship="Self.FK_Reicpes_RecipeCategories" FromRole="RecipeCategories" ToRole="Reicpes" />
+        </EntityType>
+        <EntityType Name="Reicpes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecipeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C_Id" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="PrepTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CookTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Person" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Difficulty" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Calories" Type="Int32" />
+          <Property Name="RecipeImg" Type="String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Ingredienst" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RecipeDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RecipeCategories" Relationship="Self.FK_Reicpes_RecipeCategories" FromRole="Reicpes" ToRole="RecipeCategories" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK_Comments_Reicpes" FromRole="Reicpes" ToRole="Comments" />
+          <NavigationProperty Name="FindRecipe" Relationship="Self.FK_FindRecipe_Reicpes" FromRole="Reicpes" ToRole="FindRecipe" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Reicpes_Users" FromRole="Reicpes" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email_" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password_" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ProfilePhoto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BirthDate" Type="DateTime" Precision="0" />
+          <Property Name="Role" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Reicpes" Relationship="Self.FK_Reicpes_Users" FromRole="Users" ToRole="Reicpes" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK_Comments_Users" FromRole="Users" ToRole="Comments" />
+        </EntityType>
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BlogCategory" Type="Int32" />
+          <Property Name="Header" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Content_" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BlogImg" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BlogCategories" Relationship="Self.FK_Blog_BlogCategories" FromRole="Blog" ToRole="BlogCategories" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="RecipeId" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Reicpes" Relationship="Self.FK_Comments_Reicpes" FromRole="Comments" ToRole="Reicpes" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Comments_Users" FromRole="Comments" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="FindRecipe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IngredientId" Type="Int32" />
+          <Property Name="RecipeId" Type="Int32" />
+          <NavigationProperty Name="Ingredients" Relationship="Self.FK_FindRecipe_Ingredients" FromRole="FindRecipe" ToRole="Ingredients" />
+          <NavigationProperty Name="Reicpes" Relationship="Self.FK_FindRecipe_Reicpes" FromRole="FindRecipe" ToRole="Reicpes" />
+        </EntityType>
+        <EntityType Name="Menus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MenuCategory" Type="Int32" />
+          <Property Name="Menu1Id" Type="Int32" />
+          <Property Name="Menu2Id" Type="Int32" />
+          <Property Name="Menu3Id" Type="Int32" />
+          <Property Name="Menu4Id" Type="Int32" />
+          <Property Name="Menu5Id" Type="Int32" />
+          <NavigationProperty Name="MenuCategories" Relationship="Self.FK_Menus_MenuCategories" FromRole="Menus" ToRole="MenuCategories" />
+        </EntityType>
+        <Association Name="FK_Blog_BlogCategories">
+          <End Role="BlogCategories" Type="Self.BlogCategories" Multiplicity="0..1" />
+          <End Role="Blog" Type="Self.Blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Blog">
+              <PropertyRef Name="BlogCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FindRecipe_Ingredients">
+          <End Role="Ingredients" Type="Self.Ingredients" Multiplicity="0..1" />
+          <End Role="FindRecipe" Type="Self.FindRecipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FindRecipe">
+              <PropertyRef Name="IngredientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Menus_MenuCategories">
+          <End Role="MenuCategories" Type="Self.MenuCategories" Multiplicity="0..1" />
+          <End Role="Menus" Type="Self.Menus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Menus">
+              <PropertyRef Name="MenuCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reicpes_RecipeCategories">
+          <End Role="RecipeCategories" Type="Self.RecipeCategories" Multiplicity="0..1" />
+          <End Role="Reicpes" Type="Self.Reicpes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecipeCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reicpes">
+              <PropertyRef Name="C_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Reicpes">
+          <End Role="Reicpes" Type="Self.Reicpes" Multiplicity="0..1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reicpes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FindRecipe_Reicpes">
+          <End Role="Reicpes" Type="Self.Reicpes" Multiplicity="0..1" />
+          <End Role="FindRecipe" Type="Self.FindRecipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reicpes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FindRecipe">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reicpes_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Reicpes" Type="Self.Reicpes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reicpes">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="YemekTarifleriEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BlogCategories" EntityType="Self.BlogCategories" />
+          <EntitySet Name="Ingredients" EntityType="Self.Ingredients" />
+          <EntitySet Name="MenuCategories" EntityType="Self.MenuCategories" />
+          <EntitySet Name="RecipeCategories" EntityType="Self.RecipeCategories" />
+          <EntitySet Name="Reicpes" EntityType="Self.Reicpes" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="Blog" EntityType="Self.Blog" />
+          <EntitySet Name="Comments" EntityType="Self.Comments" />
+          <EntitySet Name="FindRecipe" EntityType="Self.FindRecipe" />
+          <EntitySet Name="Menus" EntityType="Self.Menus" />
+          <AssociationSet Name="FK_Blog_BlogCategories" Association="Self.FK_Blog_BlogCategories">
+            <End Role="BlogCategories" EntitySet="BlogCategories" />
+            <End Role="Blog" EntitySet="Blog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FindRecipe_Ingredients" Association="Self.FK_FindRecipe_Ingredients">
+            <End Role="Ingredients" EntitySet="Ingredients" />
+            <End Role="FindRecipe" EntitySet="FindRecipe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Menus_MenuCategories" Association="Self.FK_Menus_MenuCategories">
+            <End Role="MenuCategories" EntitySet="MenuCategories" />
+            <End Role="Menus" EntitySet="Menus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reicpes_RecipeCategories" Association="Self.FK_Reicpes_RecipeCategories">
+            <End Role="RecipeCategories" EntitySet="RecipeCategories" />
+            <End Role="Reicpes" EntitySet="Reicpes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Reicpes" Association="Self.FK_Comments_Reicpes">
+            <End Role="Reicpes" EntitySet="Reicpes" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FindRecipe_Reicpes" Association="Self.FK_FindRecipe_Reicpes">
+            <End Role="Reicpes" EntitySet="Reicpes" />
+            <End Role="FindRecipe" EntitySet="FindRecipe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reicpes_Users" Association="Self.FK_Reicpes_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Reicpes" EntitySet="Reicpes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Users" Association="Self.FK_Comments_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="YemekTarifleriModelStoreContainer" CdmEntityContainer="YemekTarifleriEntities">
+          <EntitySetMapping Name="BlogCategories">
+            <EntityTypeMapping TypeName="YemekTarifleriModel.BlogCategories">
+              <MappingFragment StoreEntitySet="BlogCategories">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryImg" ColumnName="CategoryImg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ingredients">
+            <EntityTypeMapping TypeName="YemekTarifleriModel.Ingredients">
+              <MappingFragment StoreEntitySet="Ingredients">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IngredientName" ColumnName="IngredientName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuCategories">
+            <EntityTypeMapping TypeName="YemekTarifleriModel.MenuCategories">
+              <MappingFragment StoreEntitySet="MenuCategories">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="MenuImg" ColumnName="MenuImg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecipeCategories">
+            <EntityTypeMapping TypeName="YemekTarifleriModel.RecipeCategories">
+              <MappingFragment StoreEntitySet="RecipeCategories">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reicpes">
+            <EntityTypeMapping TypeName="YemekTarifleriModel.Reicpes">
+              <MappingFragment StoreEntitySet="Reicpes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RecipeName" ColumnName="RecipeName" />
+                <ScalarProperty Name="C_Id" ColumnName="C_Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PrepTime" ColumnName="PrepTime" />
+                <ScalarProperty Name="CookTime" ColumnName="CookTime" />
+                <ScalarProperty Name="Person" ColumnName="Person" />
+                <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+                <ScalarProperty Name="Calories" ColumnName="Calories" />
+                <ScalarProperty Name="RecipeImg" ColumnName="RecipeImg" />
+                <ScalarProperty Name="Ingredienst" ColumnName="Ingredienst" />
+                <ScalarProperty Name="RecipeDetails" ColumnName="RecipeDetails" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="YemekTarifleriModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="YemekTarifleriModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email_" ColumnName="Email_" />
+                <ScalarProperty Name="Password_" ColumnName="Password_" />
+                <ScalarProperty Name="ProfilePhoto" ColumnName="ProfilePhoto" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blog">
+            <EntityTypeMapping TypeName="YemekTarifleriModel.Blog">
+              <MappingFragment StoreEntitySet="Blog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BlogCategory" ColumnName="BlogCategory" />
+                <ScalarProperty Name="Header" ColumnName="Header" />
+                <ScalarProperty Name="Content_" ColumnName="Content_" />
+                <ScalarProperty Name="BlogImg" ColumnName="BlogImg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="YemekTarifleriModel.Comments">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FindRecipe">
+            <EntityTypeMapping TypeName="YemekTarifleriModel.FindRecipe">
+              <MappingFragment StoreEntitySet="FindRecipe">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
+                <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="YemekTarifleriModel.Menus">
+              <MappingFragment StoreEntitySet="Menus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="MenuCategory" ColumnName="MenuCategory" />
+                <ScalarProperty Name="Menu1Id" ColumnName="Menu1Id" />
+                <ScalarProperty Name="Menu2Id" ColumnName="Menu2Id" />
+                <ScalarProperty Name="Menu3Id" ColumnName="Menu3Id" />
+                <ScalarProperty Name="Menu4Id" ColumnName="Menu4Id" />
+                <ScalarProperty Name="Menu5Id" ColumnName="Menu5Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

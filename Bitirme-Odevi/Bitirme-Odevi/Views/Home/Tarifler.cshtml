@@ -1,0 +1,518 @@
+﻿@model List<Bitirme_Odevi.Reicpes>
+ 
+@{
+    ViewBag.Title = "Tarifler";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Tarifler</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="~/PurpleAdmin-Free-Admin-Template-master/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/PurpleAdmin-Free-Admin-Template-master/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="~/PurpleAdmin-Free-Admin-Template-master/assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="~/PurpleAdmin-Free-Admin-Template-master/assets/images/favicon.ico" />
+
+    <style>
+
+        input[type=text] {
+            border: 1px solid #ebedf2;
+            font-family: "ubuntu-regular", sans-serif;
+            font-size: 0.8125rem;
+            box-shadow: none;
+            display: block;
+            width: 100%;
+            padding: 0.94rem 1.375rem;
+            font-weight: 400;
+            line-height: 1;
+            color: #212529;  
+            border-radius: 2px;
+            height: calc(2.25rem + 2px);
+            background-color: #fff;
+            text-align: left;
+        }
+
+        .bueno-btn {
+            background-color: #e3724c;
+            -webkit-transition-duration: 500ms;
+            transition-duration: 500ms;
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            min-width: 160px;
+            height: 50px;
+            color: #ffffff;
+            border-radius: 0;
+            padding: 0 30px;
+            font-size: 14px;
+            line-height: 50px;
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+     
+    <div class="container">
+        <!-- partial:../../partials/_navbar.html -->
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:../../partials/_sidebar.html -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item nav-profile">
+                        <a href="#" class="nav-link">
+                            <div class="nav-profile-image">
+                                <img src="~/bueno-master/img/imgs/user.png" alt="profile">
+                                <span class="login-status online"></span>
+                                <!--change to offline or busy as needed-->
+                            </div>
+                            <div class="nav-profile-text d-flex flex-column">
+                                <span class="font-weight-bold mb-2">Elanur Gürler</span>
+                                <span class="text-secondary text-small">Site Yöneticisi</span>
+                            </div>
+
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Admin">
+                            <span class="menu-title">Admin Paneli</span>
+                            <i class="mdi mdi-home menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                            <span class="menu-title">Tarifler</span>
+                            <i class="menu-arrow"></i>
+                            <i class="mdi mdi-silverware-variant menu-icon"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href=" Tarifler">Tarifler</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="Kategori ">Kategoriler</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="Yorumlar ">Yorumlar</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Kullanicilar">
+                            <span class="menu-title">Kullanıcılar </span>
+
+                            <i class="mdi mdi-account-multiple-outline menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="AdminBlog">
+                            <span class="menu-title">Blog</span>
+                            <i class="mdi mdi-blogger menu-icon"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper" style="background-color:whitesmoke;">
+
+                    <div class="row">
+                        <div class="col-12 col-sm-8">
+
+                        </div>
+                        <div class="col-12 col-sm-4">
+
+                            <a class="btn  btn-secondary" type="button" href="#tarifekle">Tarif Ekle</a>
+                            <br /><br />
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 grid-margin">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h2 style="   color: #C0503C ">Tarifler</h2>
+                                        <div class="col-10">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" placeholder="Kullanıcı adı ile ara" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                    <button class="btn  btn-secondary" type="button">Ara</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive  ">
+                                            <table class="table  table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>  ID </th>
+                                                        <th> Tarif Adı </th>
+                                                        <th> Kategori </th>
+                                                        @*<th> Yazar </th>*@
+                                                        <th>  Hazırlama<br />Süresi </th>
+                                                        <th>  Pişirme<br />Süresi </th>
+                                                        <th>  Zorluk</th>
+                                                        <th>  Kalori </th>
+                                                        
+                                                        <th>İşlem</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var item in Model)
+                                                    {
+                                                    <tr>
+
+                                                        <th>@item.Id</th>
+                                                        <th> <a href="TarifDetay"> <img src="@item.RecipeImg" class="me-2" alt="image"></a>  @item.RecipeName </th>
+                                                       
+                                                        <th>@item.C_Id  </th>
+                                                        @*<th>@item.Users.Id</th>*@
+                                                        <th>@item.PrepTime</th>
+                                                        <th>@item.CookTime</th>
+                                                   
+                                                        <th>@item.Difficulty</th>
+                                                        <th>@item.Calories</th>
+                                                         
+                                                        <td><a class="btn btn-sm btn-success" href="#tarifduzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                    </tr>
+                                                    }
+                                                    </tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 grid-margin  " id="tarifduzenle">
+                            <div class="card" style="background-color:white ;">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="   color: #C0503C ">Tarifi Düzenle</h4>
+                                    <br />
+                                    <form class="forms-sample">
+                                        <!-- Tarif Paylas -->
+                                        <div class="contact-form-area">
+
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Tarif Adı*</label>
+                                                    <input class="form-control" placeholder="Tarif Adı*">
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Hazırlama Süresi*</label>
+                                                    <input class="form-control disabled" list="datalistOptions" placeholder="Hazırlama Süresi*">
+                                                    <datalist id="datalistOptions">
+                                                        <option value="5 Dk ">
+                                                        <option value="10 Dk">
+                                                        <option value="15 Dk">
+                                                        <option value="20 Dk">
+                                                        <option value="25 Dk">
+                                                        <option value="30 Dk">
+                                                        <option value="45 Dk">
+                                                        <option value="1 Saat">
+                                                        <option value="1 Saat 15 Dk">
+                                                        <option value="1 Saat 30 Dk">
+                                                        <option value="1 Saat 45 Dk">
+                                                        <option value="2 Saat">
+                                                        <option value="2 Saat ve Üzeri">
+                                                    </datalist>
+
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Pişirme Süresi*</label>
+                                                    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Pişirme Süresi*">
+                                                    <datalist id="datalistOptions">
+                                                        <option value="5 Dk ">
+                                                        <option value="10 Dk">
+                                                        <option value="15 Dk">
+                                                        <option value="20 Dk">
+                                                        <option value="25 Dk">
+                                                        <option value="30 Dk">
+                                                        <option value="45 Dk">
+                                                        <option value="1 Saat">
+                                                        <option value="1 Saat 15 Dk">
+                                                        <option value="1 Saat 30 Dk">
+                                                        <option value="1 Saat 45 Dk">
+                                                        <option value="2 Saat">
+                                                        <option value="2 Saat ve Üzeri">
+                                                    </datalist>
+
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Kaç Kişilik*</label>
+                                                    <input class="form-control" list="datalistKisi" id="exampleDataList1" placeholder="Kaç Kişilik*">
+                                                    <datalist id="datalistKisi">
+                                                        <option value="1-2 Kişilik ">
+                                                        <option value="2-4 Kişilik  ">
+                                                        <option value="4-6 Kişilik">
+                                                        <option value="6-8 Kişilik">
+                                                        <option value="8-10 Kişilik">
+                                                        <option value="10-12 Kişilik">
+                                                        <option value="12-14 Kişilik">
+                                                        <option value="+14 Kişi ">
+                                                    </datalist>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Zorluk Seviyesi*</label>
+                                                    <input class="form-control" list="datalistZorluk" id="exampleDataList2" placeholder="Zorluk Seviyesi*">
+                                                    <datalist id="datalistZorluk">
+                                                        <option value="Kolay ">
+                                                        <option value="Orta ">
+                                                        <option value="Zor">
+                                                        <option value="Çok Zor">
+
+                                                    </datalist>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Kalori Değeri*</label>
+                                                    <input type="number" class="form-control" id="subject" placeholder="Kalori Değeri*" style="position: relative; z-index: 2; height: 54px; width: 100%; background-color: #ffffff; font-size: 12px; margin-bottom: 15px; border: 1px solid #dadfe5; border-bottom: 2px solid #dadfe5; border-radius: 0; padding: 15px 30px; font-weight: 500; color: #aeaeae;">
+                                                </div>
+
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Kategori*</label>
+                                                    <input class="form-control" list="datalistKategori" id="exampleDataList3" placeholder="Kategori*">
+                                                    <datalist id="datalistKategori">
+                                                        <option value="Çorbalar"></option>
+                                                        <option value="Et Yemekleri "></option>
+
+                                                        <option value="Sebze Yemekleri"></option>
+
+
+                                                        <option value="Kahvaltılık"></option>
+                                                        <option value="Bakliyat Yemekleri"></option>
+                                                        <option value="Sarma-Dolma"></option>
+                                                        <option value="Kek-Pasta-Kurabiye"></option>
+                                                        <option value="Şerbetli Tatlılar"></option>
+                                                        <option value="Sütlü Tatlılar"></option>
+                                                        <option value="Dondurmalar"></option>
+                                                        <option value="Vejeteryan Tarifler"></option>
+                                                        <option value="Vegan Tarifler"></option>
+                                                        <option value="Diyabetik Tarifler"></option>
+                                                        <option value="Düşük Kalorili Tarifler"></option>
+                                                        <option value="Diyet Tatlı Tarifleri"></option>
+                                                        <option value="Turşu"></option>
+                                                        <option value="Reçel-Marmelat"></option>
+                                                        <option value="Komposto"></option>
+
+                                                    </datalist>
+                                                </div>
+
+                                                <div class="col-12 col-lg-6">
+
+                                                    <div class="form-group">
+                                                        <label style="font-size:20px; background-color:white;" disabled> Fotoğraf Ekle</label>
+                                                        <input type="file" name="img[]" class="file-upload-default" multiple>
+                                                        <div class="input-group col-xs-12">
+                                                            <input type="text" class="form-control file-upload-info" disabled placeholder="Fotoğraf Ekle">
+                                                            <span class="input-group-append">
+                                                                <button class="file-upload-browse btn btn-secondary" type="button" style="height:54px;">Ekle</button>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Malzemeler*</label>
+                                                    <textarea class="form-control" id="message" cols="30" rows="10" placeholder="Malzemeleri Alt Alta Yazın*" style="position: relative; z-index: 2;  width: 100%; background-color: #ffffff; font-size: 12px; margin-bottom: 15px; border: 1px solid #dadfe5; border-bottom: 2px solid #dadfe5; border-radius: 0; padding: 15px 30px; font-weight: 500; color: #aeaeae;"></textarea>
+
+                                                </div>
+
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Tarif Detayı*</label>
+                                                    <textarea class="form-control" id="message" cols="30" rows="10" placeholder="Tarifi Detaylarıyla Yazın*" style="position: relative; z-index: 2;  width: 100%; background-color: #ffffff; font-size: 12px; margin-bottom: 15px; border: 1px solid #dadfe5; border-bottom: 2px solid #dadfe5; border-radius: 0; padding: 15px 30px; font-weight: 500; color: #aeaeae;"></textarea>
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+
+                                        <button type="submit" class="btn btn-success">Değişiklikleri Kaydet</button>
+                                        <button class="btn btn-danger">Sil</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 grid-margin  " id="tarifekle">
+                            <div class="card" style="background-color:white ;">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="   color: #C0503C ">Tarif Ekle</h4>
+                                    <br />
+                                    <form class="forms-sample">
+                                        <!-- Tarif Paylas -->
+                                        <div class="contact-form-area">
+
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Tarif Adı*</label>
+                                                    <input class="form-control" placeholder="Tarif Adı*">
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Hazırlama Süresi*</label>
+                                                    <input class="form-control disabled" list="datalistOptions" placeholder="Hazırlama Süresi*">
+                                                    <datalist id="datalistOptions">
+                                                        <option value="5 Dk ">
+                                                        <option value="10 Dk">
+                                                        <option value="15 Dk">
+                                                        <option value="20 Dk">
+                                                        <option value="25 Dk">
+                                                        <option value="30 Dk">
+                                                        <option value="45 Dk">
+                                                        <option value="1 Saat">
+                                                        <option value="1 Saat 15 Dk">
+                                                        <option value="1 Saat 30 Dk">
+                                                        <option value="1 Saat 45 Dk">
+                                                        <option value="2 Saat">
+                                                        <option value="2 Saat ve Üzeri">
+                                                    </datalist>
+
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Pişirme Süresi*</label>
+                                                    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Pişirme Süresi*">
+                                                    <datalist id="datalistOptions">
+                                                        <option value="5 Dk ">
+                                                        <option value="10 Dk">
+                                                        <option value="15 Dk">
+                                                        <option value="20 Dk">
+                                                        <option value="25 Dk">
+                                                        <option value="30 Dk">
+                                                        <option value="45 Dk">
+                                                        <option value="1 Saat">
+                                                        <option value="1 Saat 15 Dk">
+                                                        <option value="1 Saat 30 Dk">
+                                                        <option value="1 Saat 45 Dk">
+                                                        <option value="2 Saat">
+                                                        <option value="2 Saat ve Üzeri">
+                                                    </datalist>
+
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Kaç Kişilik*</label>
+                                                    <input class="form-control" list="datalistKisi" id="exampleDataList1" placeholder="Kaç Kişilik*">
+                                                    <datalist id="datalistKisi">
+                                                        <option value="1-2 Kişilik ">
+                                                        <option value="2-4 Kişilik  ">
+                                                        <option value="4-6 Kişilik">
+                                                        <option value="6-8 Kişilik">
+                                                        <option value="8-10 Kişilik">
+                                                        <option value="10-12 Kişilik">
+                                                        <option value="12-14 Kişilik">
+                                                        <option value="+14 Kişi ">
+                                                    </datalist>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Zorluk Seviyesi*</label>
+                                                    <input class="form-control" list="datalistZorluk" id="exampleDataList2" placeholder="Zorluk Seviyesi*">
+                                                    <datalist id="datalistZorluk">
+                                                        <option value="Kolay ">
+                                                        <option value="Orta ">
+                                                        <option value="Zor">
+                                                        <option value="Çok Zor">
+
+                                                    </datalist>
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Kalori Değeri*</label>
+                                                    <input type="number" class="form-control" id="subject" placeholder="Kalori Değeri*" style="position: relative; z-index: 2; height: 54px; width: 100%; background-color: #ffffff; font-size: 12px; margin-bottom: 15px; border: 1px solid #dadfe5; border-bottom: 2px solid #dadfe5; border-radius: 0; padding: 15px 30px; font-weight: 500; color: #aeaeae;">
+                                                </div>
+
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Kategori*</label>
+                                                    <input class="form-control" list="datalistKategori" id="exampleDataList3" placeholder="Kategori*">
+                                                    <datalist id="datalistKategori">
+                                                        <option value="Çorbalar"></option>
+                                                        <option value="Et Yemekleri "></option>
+
+                                                        <option value="Sebze Yemekleri"></option>
+
+
+                                                        <option value="Kahvaltılık"></option>
+                                                        <option value="Bakliyat Yemekleri"></option>
+                                                        <option value="Sarma-Dolma"></option>
+                                                        <option value="Kek-Pasta-Kurabiye"></option>
+                                                        <option value="Şerbetli Tatlılar"></option>
+                                                        <option value="Sütlü Tatlılar"></option>
+                                                        <option value="Dondurmalar"></option>
+                                                        <option value="Vejeteryan Tarifler"></option>
+                                                        <option value="Vegan Tarifler"></option>
+                                                        <option value="Diyabetik Tarifler"></option>
+                                                        <option value="Düşük Kalorili Tarifler"></option>
+                                                        <option value="Diyet Tatlı Tarifleri"></option>
+                                                        <option value="Turşu"></option>
+                                                        <option value="Reçel-Marmelat"></option>
+                                                        <option value="Komposto"></option>
+
+                                                    </datalist>
+                                                </div>
+
+                                                <div class="col-12 col-lg-6">
+
+                                                    <div class="form-group">
+                                                        <label style="font-size:20px; background-color:white;" disabled> Fotoğraf Ekle</label>
+                                                        <input type="file" name="img[]" class="file-upload-default" multiple>
+                                                        <div class="input-group col-xs-12">
+                                                            <input type="text" class="form-control file-upload-info" disabled placeholder="Fotoğraf Ekle">
+                                                            <span class="input-group-append">
+                                                                <button class="file-upload-browse btn btn-secondary" type="button" style="height:54px;">Ekle</button>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Malzemeler*</label>
+                                                    <textarea class="form-control" id="message" cols="30" rows="10" placeholder="Malzemeleri Alt Alta Yazın*" style="position: relative; z-index: 2;  width: 100%; background-color: #ffffff; font-size: 12px; margin-bottom: 15px; border: 1px solid #dadfe5; border-bottom: 2px solid #dadfe5; border-radius: 0; padding: 15px 30px; font-weight: 500; color: #aeaeae;"></textarea>
+
+                                                </div>
+
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Tarif Detayı*</label>
+                                                    <textarea class="form-control" id="message" cols="30" rows="10" placeholder="Tarifi Detaylarıyla Yazın*" style="position: relative; z-index: 2;  width: 100%; background-color: #ffffff; font-size: 12px; margin-bottom: 15px; border: 1px solid #dadfe5; border-bottom: 2px solid #dadfe5; border-radius: 0; padding: 15px 30px; font-weight: 500; color: #aeaeae;"></textarea>
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+
+                                        <button type="submit" class="btn btn-success">Ekle</button>
+
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="~/PurpleAdmin-Free-Admin-Template-master/assets/vendors/js/vendor.bundle.base.js"></script>
+
+    <script src="~/PurpleAdmin-Free-Admin-Template-master/assets/js/off-canvas.js"></script>
+    <script src="~/PurpleAdmin-Free-Admin-Template-master/assets/js/hoverable-collapse.js"></script>
+    <script src="~/PurpleAdmin-Free-Admin-Template-master/assets/js/misc.js"></script>
+    <script src="~/PurpleAdmin-Free-Admin-Template-master/assets/js/file-upload.js"></script>
+</body>
+</html>

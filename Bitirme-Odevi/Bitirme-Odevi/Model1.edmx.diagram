@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3de93d20f903419db1c293c0a0ed7ba9" Name="Diagram1">
+        <EntityTypeShape EntityType="YemekTarifleriModel.BlogCategories" Width="1.5" PointX="7.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="YemekTarifleriModel.Ingredients" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YemekTarifleriModel.MenuCategories" Width="1.5" PointX="5.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="YemekTarifleriModel.RecipeCategories" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="YemekTarifleriModel.Reicpes" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YemekTarifleriModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="YemekTarifleriModel.Users" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="YemekTarifleriModel.Blog" Width="1.5" PointX="10" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YemekTarifleriModel.Comments" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="YemekTarifleriModel.FindRecipe" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YemekTarifleriModel.Menus" Width="1.5" PointX="8" PointY="7.125" IsExpanded="true" />
+        <AssociationConnector Association="YemekTarifleriModel.FK_Blog_BlogCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="YemekTarifleriModel.FK_FindRecipe_Ingredients" ManuallyRouted="false" />
+        <AssociationConnector Association="YemekTarifleriModel.FK_Menus_MenuCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="YemekTarifleriModel.FK_Reicpes_RecipeCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="YemekTarifleriModel.FK_Comments_Reicpes" ManuallyRouted="false" />
+        <AssociationConnector Association="YemekTarifleriModel.FK_FindRecipe_Reicpes" ManuallyRouted="false" />
+        <AssociationConnector Association="YemekTarifleriModel.FK_Reicpes_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="YemekTarifleriModel.FK_Comments_Users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

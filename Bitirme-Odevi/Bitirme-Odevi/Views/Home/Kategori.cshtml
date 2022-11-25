@@ -1,0 +1,443 @@
+﻿
+@{
+    ViewBag.Title = "Kategori";
+    Layout = null;
+}
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Kategoriler</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="~/PurpleAdmin-Free-Admin-Template-master/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/PurpleAdmin-Free-Admin-Template-master/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="~/PurpleAdmin-Free-Admin-Template-master/assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="~/PurpleAdmin-Free-Admin-Template-master/assets/images/favicon.ico" />
+
+    <style>
+
+        input[type=text] {
+            border: 1px solid #ebedf2;
+            font-family: "ubuntu-regular", sans-serif;
+            font-size: 0.8125rem;
+            box-shadow: none;
+            display: block;
+            width: 100%;
+            padding: 0.94rem 1.375rem;
+            font-weight: 400;
+            line-height: 1;
+            color: #212529;
+            appearance: none;
+            border-radius: 2px;
+            height: calc(2.25rem + 2px);
+            background-color: #fff;
+            text-align: left;
+        }
+
+        .bueno-btn {
+            background-color: #e3724c;
+            -webkit-transition-duration: 500ms;
+            transition-duration: 500ms;
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            min-width: 160px;
+            height: 50px;
+            color: #ffffff;
+            border-radius: 0;
+            padding: 0 30px;
+            font-size: 14px;
+            line-height: 50px;
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- partial:../../partials/_navbar.html -->
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:../../partials/_sidebar.html -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item nav-profile">
+                        <a href="#" class="nav-link">
+                            <div class="nav-profile-image">
+                                <img src="~/bueno-master/img/imgs/user.png" alt="profile">
+                                <span class="login-status online"></span>
+                                <!--change to offline or busy as needed-->
+                            </div>
+                            <div class="nav-profile-text d-flex flex-column">
+                                <span class="font-weight-bold mb-2">Elanur Gürler</span>
+                                <span class="text-secondary text-small">Site Yöneticisi</span>
+                            </div>
+
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Admin">
+                            <span class="menu-title">Admin Paneli</span>
+                            <i class="mdi mdi-home menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                            <span class="menu-title">Tarifler</span>
+                            <i class="menu-arrow"></i>
+                            <i class="mdi mdi-silverware-variant menu-icon"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href=" Tarifler">Tarifler</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="Kategori ">Kategoriler</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="Yorumlar ">Yorumlar</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Kullanicilar">
+                            <span class="menu-title">Kullanıcılar </span>
+
+                            <i class="mdi mdi-account-multiple-outline menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="AdminBlog">
+                            <span class="menu-title">Blog</span>
+                            <i class="mdi mdi-blogger menu-icon"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper" style="background-color:whitesmoke;">
+
+                    <div class="row">
+                        <div class="col-12 col-sm-8">
+
+                        </div>
+                        <div class="col-12 col-sm-4">
+
+                            <a class="btn  btn-secondary" type="button" href="#kategoriekle">Kategori Ekle</a>
+                            <br /><br />
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 grid-margin">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h2 style="   color: #C0503C ">Kategoriler</h2>
+                                    <div class="col-10">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="Kategorilerde ara" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                <button class="btn  btn-secondary" type="button">Ara</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive  ">
+                                        <table class="table  table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th >  ID </th>
+                                                    <th> Kategori</th>
+                                                    <th>İşlem</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td> 1 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/tarhana-corbasi.jpg" class="me-2" alt="image"> Çorbalar
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 2 </td>
+                                                    <td>
+                                                        <img src="/bueno-master/img/imgs/hunkar-begendi.jpg" class="me-2" alt="image"> Et Yemekleri
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 3 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/sebze-yemegi.jpg" class="me-2" alt="image"> Sebze Yemekleri
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 4 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/hamurisi.png" class="me-2" alt="image"> Hamurişi
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 5 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/bakliyat-yemegi.jpg" class="me-2" alt="image"> Bakliyat Yemekleri
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 6 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/sarma-dolma.jpg" class="me-2" alt="image"> Sarma-Dolma
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 7 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/pilav.jpg" class="me-2" alt="image"> Pilavlar
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 8 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/makarna.jpg" class="me-2" alt="image"> Makarnalar
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 9 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/salata.jpg" class="me-2" alt="image"> Salata-Meze
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 10 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/kahvaltılık.jpg" class="me-2" alt="image"> Kahvaltılıklar
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 11 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/dunya-mutfagi.jpg" class="me-2" alt="image"> Dünya Mutfaklarından Tarifler
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 12 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/kek.jpg" class="me-2" alt="image"> Kek-Pasta-Kurabiye
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 13 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/serbetli-tatlı.jpg" class="me-2" alt="image">  Şerbetli Tatlılar
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 14 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/sutlu-tatli.jpg" class="me-2" alt="image"> Sütlü Tatlılar
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 15 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/dondurma.jpg" class="me-2" alt="image"> Dondurmalar
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td> 16 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/vejeteryan.jpg" class="me-2" alt="image"> Vejeteryan Tarifler
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 17 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/vegan.jpg" class="me-2" alt="image"> Vegan Tarifler
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td> 18 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/diyet.jpg" class="me-2" alt="image">  Düşük Kalorili Tarifler
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 19 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/diyet-tatli.jpg" class="me-2" alt="image"> Diyet Tatlı Tarifleri
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 20 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/diyabetik.jpg" class="me-2" alt="image"> Diyabetik Tarifler
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 21 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/tursu.jpg" class="me-2" alt="image"> Turşu Tarifleri
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 22 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/recel.jpg" class="me-2" alt="image"> Reçel-Marmelat Tarifleri
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 23 </td>
+                                                    <td>
+                                                        <img src="~/bueno-master/img/imgs/komposto.jpg" class="me-2" alt="image"> Komposto Tarifleri
+                                                    </td>
+                                                    <td><a class="btn btn-sm btn-success" href="#duzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 grid-margin  " id="duzenle">
+                            <div class="card" style="background-color:white ;">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="   color: #C0503C ">Kategori Düzenle</h4>
+                                    <br />
+                                    <form class="forms-sample">
+
+                                        <div class="contact-form-area">
+
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Kategori Adı*</label>
+                                                    <input class="form-control" placeholder="Kategori Adı*">
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label style="font-size:15px; background-color:white;">Kategori Fotoğrafı*</label>
+                                                        <input type="file" name="img[]" class="file-upload-default" multiple>
+                                                        <div class="input-group col-xs-6">
+                                                            <input type="text" class="form-control file-upload-info" disabled placeholder="Fotoğraf Seçin">
+                                                            <span class="input-group-append">
+                                                                <button class="file-upload-browse btn  btn-secondary" type="button" style="height: 54px;  ">Yükle</button>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <button type="submit" class="btn btn-success">Değişiklikleri Kaydet</button>
+                                        <button class="btn btn-danger">Sil</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 grid-margin  " id="kategoriekle">
+                            <div class="card" style="background-color:white ;">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="   color: #C0503C ">Kategori Ekle</h4>
+                                    <br />
+                                    <form class="forms-sample">
+
+                                        <div class="contact-form-area">
+
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Kategori Adı*</label>
+                                                    <input class="form-control" placeholder="Kategori Adı*">
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label style="font-size:15px; background-color:white;">Kategori Fotoğrafı*</label>
+                                                        <input type="file" name="img[]" class="file-upload-default" multiple>
+                                                        <div class="input-group col-xs-6">
+                                                            <input type="text" class="form-control file-upload-info" disabled placeholder="Fotoğraf Seçin">
+                                                            <span class="input-group-append">
+                                                                <button class="file-upload-browse btn btn-secondary " type="button" style="height: 54px;  ">Yükle</button>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-success">Ekle</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <script src="~/PurpleAdmin-Free-Admin-Template-master/assets/js/file-upload.js"></script>
+    <script src="~/PurpleAdmin-Free-Admin-Template-master/assets/vendors/js/vendor.bundle.base.js"></script>
+
+    <script src="~/PurpleAdmin-Free-Admin-Template-master/assets/js/off-canvas.js"></script>
+    <script src="~/PurpleAdmin-Free-Admin-Template-master/assets/js/hoverable-collapse.js"></script>
+    <script src="~/PurpleAdmin-Free-Admin-Template-master/assets/js/misc.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+

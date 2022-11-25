@@ -1,0 +1,334 @@
+﻿@model List<Bitirme_Odevi.Reicpes>
+@{
+    ViewBag.Title = "TarifDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Title -->
+    <title>Tarif Detay</title>
+
+
+    <link rel="stylesheet" href="css/font-awesome.css" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/bueno-master/style.css">
+
+    <link rel="shortcut icon" href="~/PurpleAdmin-Free-Admin-Template-master/assets/images/favicon.ico" />
+    <link rel="stylesheet" href="~/PurpleAdmin-Free-Admin-Template-master/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <style>
+        ol li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="post-news-area section-padding-100-0 mb-70">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Post Details Content Area -->
+
+                <div class="col-12 col-lg-4 col-xl-5">
+                    <div class="post-details-content   ">
+                        <div class="blog-thumbnail mb-50">
+                            <h2 class="category-title">   Köfte Tarifi</h2>
+
+                            <img class="recipe-photo" src="~/bueno-master/img/imgs/kofte-kategori.png" alt="">
+
+                        </div>
+                        <div>
+                            <a class="mdi mdi-heart-outline">Tarifi Beğen</a>
+                            <a class="mdi mdi-comment-processing-outline" href="#Yorumyap">Yorum Yap</a>
+                        </div>
+                    </div>
+
+                    <div class="blog-content">
+                        <div class="row justify-content-center">
+
+                            <!-- Hazırlanıs-->
+                            <div class="ingredients" style="background-color:whitesmoke;">
+
+
+                                <h5 class="mb-30">Hazırlanışı</h5>
+
+                                <!-- Custom Checkbox -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">
+                                        Soğanları rendeleyelim.Maydanozu ince kıyalım.
+                                    </label>
+                                </div>
+
+                                <!-- Custom Checkbox -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                    <label class="custom-control-label" for="customCheck2">
+                                        Bir tepsiye alalım baharat, ekmek kıyması ve tuzunu ilave edelim. Güzelce yoğuralım.Ne kadar yoğurursak o kadar lezzetli köftelerimiz olur.
+                                    </label>
+                                </div>
+
+                                <!-- Custom Checkbox -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck3">
+                                    <label class="custom-control-label" for="customCheck3">
+                                        İstediğimiz şekli verip vaktiniz varsa buzdolabında dinlendirelim.
+
+                                        Dinlenmiş köfteler çok daha lezzetli olur bilginize.
+                                    </label>
+                                </div>
+
+                                <!-- Custom Checkbox -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck4">
+                                    <label class="custom-control-label" for="customCheck4">Sıvı yağda kızartıp sıcak servis yapalım.</label>
+                                </div>
+
+                                <!-- Custom Checkbox -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck5">
+                                    <label class="custom-control-label" for="customCheck5">Afiyet olsun.</label>
+                                </div>
+
+                            </div>
+                            <br />
+                            <br />
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-4 col-xl-4">
+                    <!-- Tarif Hakkında Bilgiler -->
+
+                    <div class="recipe-info">
+                        <h5>Tarif Hakkında Bilgiler</h5>
+                        <ul class="info-data">
+                            <li><img src="/bueno-master/img/core-img/alarm-clock.png" style="width:30px; height:30px; " alt=""> <span>10 dakika</span></li>
+                            <li><img src="/bueno-master/img/core-img/tray.png" style="width: 30px; height: 30px; " alt=""> <span>4-6 Kişilik</span></li>
+                            <li><img src="/bueno-master/img/core-img/sandwich.png" style="width: 30px; height: 30px; " alt=""> <span>Kolay</span></li>
+                            <li><img src="/bueno-master/img/core-img/compass.png" style="width: 30px; height: 30px; " alt=""> <span> </span></li>
+                            <li><img src="~/bueno-master/img/imgs/kcal.png" style="height:30px; " alt=""> <span> 1 Köfte 90 kcal</span></li>
+
+                        </ul>
+                    </div>
+
+                    <!-- Malzemeler -->
+                    <br /><br />
+                    <div class="ingredient">
+                        <h5 class="ingredienttitle">Malzemeler</h5>
+                        <ul>
+                            <li class="ingredientlist"> 500 gram dana kıyma<hr class="new1" /></li>
+                            <li class="ingredientlist"> 1 su bardağı kuru ekmek<hr class="new1" /></li>
+                            <li class="ingredientlist"> 2 adet soğan<hr class="new1" /></li>
+                            <li class="ingredientlist"> Yarım demet maydanoz <hr class="new1" /></li>
+                            <li class="ingredientlist"> 1 çay kaşığı Karabiber<hr class="new1" /> </li>
+                            <li class="ingredientlist"> 3 çay kaşığı Kimyon <hr class="new1" /></li>
+                            <li class="ingredientlist">1 çay kaşığı karbonat<hr class="new1" /></li>
+                            <li class="ingredientlist">3 çay kaşığı tuz</li>
+                        </ul>
+
+
+
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <div class="big-posts-area mb-50" id="Yorumyap">
+        <div class="container">
+            <!-- #####  Forograflar ##### -->
+            <div class="hero-area">
+
+                <div class="hero-post-slides owl-carousel">
+
+                    <!-- Single Slide -->
+                    <div class="single-slide">
+                        <!-- Blog Thumbnail -->
+                        <div class="blog-thumbnail">
+                            <img src="~/bueno-master/img/imgs/background-1.png" alt="">
+                        </div>
+
+
+                    </div>
+
+                    <!-- Single Slide -->
+                    <div class="single-slide">
+                        <!-- Blog Thumbnail -->
+                        <div class="blog-thumbnail">
+                            <img src="~/bueno-master/img/imgs/tarhana-corbasi.jpg" alt="">
+                        </div>
+
+                        <!-- Blog Content -->
+
+                    </div>
+
+                    <!-- Single Slide -->
+                    <div class="single-slide">
+                        <!-- Blog Thumbnail -->
+                        <div class="blog-thumbnail">
+                            <img src="~/bueno-master/img/imgs/hunkar-begendi.jpg" alt="">
+                        </div>
+
+
+                    </div>
+
+                    <!-- Single Slide -->
+                    <div class="single-slide">
+                        <!-- Blog Thumbnail -->
+                        <div class="blog-thumbnail">
+                            <img src="~/bueno-master/img/imgs/salata.jpg" alt="">
+                        </div>
+
+
+                    </div>
+                </div><br />
+                <hr class="new1" />
+                <!--            Yorumlar            -->
+
+
+                <div class="row justify-content-center">
+
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix mb-100">
+                        <h2 class="category-title">Yorumlar</h2>
+
+                        <ol>
+                            <!-- Single Comment Area -->
+                            <li class="single_comment_area">
+                                <!-- Comment Content -->
+                                <div class="comment-content d-flex">
+                                    <!-- Comment Author -->
+                                    <div class="comment-author">
+                                        <img src="~/bueno-master/img/imgs/user.png" alt="author">
+                                    </div>
+                                    <!-- Comment Meta -->
+                                    <div class="comment-meta">
+                                        <div class="d-flex">
+                                            <p href="#" class="post-author">yildizG</p>
+                                            @*<a href="#" class="post-date">July 11, 2018</a>*@
+
+                                        </div>
+                                        <p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
+                                    </div>
+                                </div>
+
+
+                            </li>
+
+                            <!-- Single Comment Area -->
+                            <li class="single_comment_area">
+                                <!-- Comment Content -->
+                                <div class="comment-content d-flex">
+                                    <!-- Comment Author -->
+                                    <div class="comment-author">
+                                        <img src="~/bueno-master/img/imgs/user.png" alt="author">
+                                    </div>
+                                    <!-- Comment Meta -->
+                                    <div class="comment-meta">
+                                        <div class="d-flex">
+                                            <p class="post-author">edagrlr</p>
+                                            @*<a href="#" class="post-date">July 11, 2018</a>*@
+
+                                        </div>
+                                        <p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
+                                    </div>
+                                </div>
+
+
+                            </li> <!-- Single Comment Area -->
+                            <li class="single_comment_area">
+                                <!-- Comment Content -->
+                                <div class="comment-content d-flex">
+                                    <!-- Comment Author -->
+                                    <div class="comment-author">
+                                        <img src="~/bueno-master/img/imgs/user.png" alt="author">
+                                    </div>
+                                    <!-- Comment Meta -->
+                                    <div class="comment-meta">
+                                        <div class="d-flex">
+                                            <p href="#" class="post-author">emre4040</p>
+                                            @*<a href="#" class="post-date">July 11, 2018</a>*@
+
+                                        </div>
+                                        <p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
+                                    </div>
+                                </div>
+
+
+                            </li> <!-- Single Comment Area -->
+
+                            <li class="single_comment_area">
+                                <!-- Comment Content -->
+                                <div class="comment-content d-flex">
+                                    <!-- Comment Author -->
+                                    <div class="comment-author">
+                                        <img src="~/bueno-master/img/imgs/user.png" alt="author">
+                                    </div>
+                                    <!-- Comment Meta -->
+                                    <div class="comment-meta">
+                                        <div class="d-flex">
+                                            <p href="#" class="post-author">metingurler</p>
+                                            @*<a href="#" class="post-date">July 11, 2018</a>*@
+
+                                        </div>
+                                        <p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
+
+                                    </div>
+
+                                </div>
+
+
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="post-a-comment-area mb-30 clearfix" id="reply">
+                        <h2 class="category-title">Yorum Yap</h2>
+
+                        <!-- Reply Form -->
+                        <div class="contact-form-area">
+                            <form action="#" method="post">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <textarea name="message" class="form-control" id="message" cols="30" rows="10"></textarea>
+
+                                        <button class="btn bueno-btn  " type="submit">Yorum Yap</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
+
+
+

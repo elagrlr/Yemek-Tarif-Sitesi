@@ -1,0 +1,440 @@
+﻿@model List<Bitirme_Odevi.Blog>
+@{
+    ViewBag.Title = "AdminBlog";
+    Layout = null;
+}
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Admin Blog </title>
+
+    <link rel="stylesheet" href="~/PurpleAdmin-Free-Admin-Template-master/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/PurpleAdmin-Free-Admin-Template-master/assets/vendors/css/vendor.bundle.base.css">
+
+    <link rel="stylesheet" href="~/PurpleAdmin-Free-Admin-Template-master/assets/css/style.css">
+
+    <link rel="shortcut icon" href="~/PurpleAdmin-Free-Admin-Template-master/assets/images/favicon.ico" />
+
+    <style>
+
+        input[type=text] {
+            border: 1px solid #ebedf2;
+            font-family: "ubuntu-regular", sans-serif;
+            font-size: 0.8125rem;
+            box-shadow: none;
+            display: block;
+            width: 100%;
+            padding: 0.94rem 1.375rem;
+            font-weight: 400;
+            line-height: 1;
+            color: #212529;
+            border-radius: 2px;
+            height: calc(2.25rem + 2px);
+            background-color: #fff;
+            text-align: left;
+        }
+
+        .bueno-btn {
+            background-color: #e3724c;
+            -webkit-transition-duration: 500ms;
+            transition-duration: 500ms;
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            min-width: 160px;
+            height: 50px;
+            color: #ffffff;
+            border-radius: 0;
+            padding: 0 30px;
+            font-size: 14px;
+            line-height: 50px;
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="container-fluid page-body-wrapper">
+
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item nav-profile">
+                        <a href="#" class="nav-link">
+                            <div class="nav-profile-image">
+                                <img src="~/bueno-master/img/imgs/user.png" alt="profile">
+                                <span class="login-status online"></span>
+
+                            </div>
+                            <div class="nav-profile-text d-flex flex-column">
+                                <span class="font-weight-bold mb-2">Elanur Gürler</span>
+                                <span class="text-secondary text-small">Site Yöneticisi</span>
+                            </div>
+
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Admin">
+                            <span class="menu-title">Admin Paneli</span>
+                            <i class="mdi mdi-home menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                            <span class="menu-title">Tarifler</span>
+                            <i class="menu-arrow"></i>
+                            <i class="mdi mdi-silverware-variant menu-icon"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href=" Tarifler">Tarifler</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="Kategori ">Kategoriler</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="Yorumlar ">Yorumlar</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Kullanicilar">
+                            <span class="menu-title">Kullanıcılar </span>
+
+                            <i class="mdi mdi-account-multiple-outline menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="AdminBlog">
+                            <span class="menu-title">Blog</span>
+                            <i class="mdi mdi-blogger menu-icon"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="main-panel">
+                <div class="content-wrapper" style="background-color:whitesmoke;">
+                    <div class="row">
+                        <div class="col-12 col-sm-8">
+
+                        </div>
+                        <div class="col-12 col-sm-4">
+
+                            <a class="btn  btn-secondary" type="button" href="#kategoriekle"> Blog Kategori Ekle</a>
+                            <br /><br />
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 grid-margin">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h2 style="   color: #C0503C ">BLOG KATEGORİLER</h2>
+                                    <div class="col-10">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="Kategorilerde ara" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                <button class="btn  btn-secondary" type="button">Ara</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive  ">
+                                        <table class="table  table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>  ID </th>
+                                                    <th> Blog Kategori</th>
+                                                    <th>Açıklama</th>
+                                                    <th>İşlem</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr>
+
+                                                        <th>@item.BlogCategories.Id</th>
+                                                        <th> <a href="TarifDetay"> <img src="@item.BlogCategories.CategoryImg" class="me-2" alt="image"></a>  @item.BlogCategories.CategoryName </th>
+                                                        @*<th>@item.BlogK.</th>*@
+ 
+                                                       
+                                                        <td><a class="btn btn-sm btn-success" href="#tarifduzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                    </tr> 
+}                                               }
+                                                       
+                                                </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-8">
+
+                        </div>
+                        <div class="col-12 col-sm-4">
+
+                            <a class="btn  btn-secondary" type="button" href="#yaziekle"> Blog İçerik Ekle</a>
+                            <br /><br />
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 grid-margin">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h2 style="   color: #C0503C ">BLOG YAZI</h2>
+                                    <div class="col-10">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="Kategorilerde ara" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                <button class="btn  btn-secondary" type="button">Ara</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="table-responsive  ">
+                                        <table class="table  table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>  ID </th>
+                                                    <th>Başlık</th>
+                                                    <th> Blog Kategori</th>
+                                                    <th>İçerik</th>
+                                                    <th>İşlem</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr>
+
+                                                        <th>@item.Id</th>
+                                                        <th> <a href="TarifDetay"> <img src="@item.BlogImg" class="me-2" alt="image"></a>  @item.Header </th>
+                                                        <th> @item.BlogCategories.CategoryName</th>
+                                                     
+                                                        <th>@item.Content_</th>
+                                                        <td><a class="btn btn-sm btn-success" href="#tarifduzenle"> Düzenle </a> <a class="btn btn-sm  btn-danger">Sil </a></td>
+                                                    </tr>
+
+                                                }
+
+
+                                            </tbody>
+                                        </table>
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 grid-margin  " id="duzenle">
+                            <div class="card" style="background-color:white ;">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="   color: #C0503C ">Blog Kategori Düzenle</h4>
+                                    <br />
+                                    <form class="forms-sample">
+
+                                        <div class="contact-form-area">
+
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Kategori Adı*</label>
+                                                    <input class="form-control" placeholder="Kategori Adı*">
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label style="font-size:15px; background-color:white;">Kategori Fotoğrafı*</label>
+                                                        <input type="file" name="img[]" class="file-upload-default">
+                                                        <div class="input-group col-xs-6">
+                                                            <input type="text" class="form-control file-upload-info" disabled placeholder="Fotoğraf Seçin">
+                                                            <span class="input-group-append">
+                                                                <button class="file-upload-browse btn  btn-secondary" type="button" style="height: 54px;  ">Yükle</button>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label style="font-size:15px; background-color:white;" disabled>Açıklama*</label>
+                                                    <textarea class="form-control" id="exampleTextarea1" rows="2" placeholder="Açıklama*"></textarea>
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+                                        <button type="submit" class="btn btn-success">Değişiklikleri Kaydet</button>
+                                        <button class="btn btn-danger">Sil</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 grid-margin  " id="kategoriekle">
+                            <div class="card" style="background-color:white ;">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="   color: #C0503C ">Blog Kategori Ekle</h4>
+                                    <br />
+                                    <form class="forms-sample">
+
+                                        <div class="contact-form-area">
+
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled>Blog Kategori Adı*</label>
+                                                    <input class="form-control" placeholder="Kategori Adı*">
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label style="font-size:20px; background-color:white;" disabled> Fotoğraf Ekle</label>
+                                                        <input type="file" name="img[]" class="file-upload-default" multiple>
+                                                        <div class="input-group col-xs-12">
+                                                            <input type="text" class="form-control file-upload-info" disabled placeholder="Fotoğraf Ekle">
+                                                            <span class="input-group-append">
+                                                                <button class="file-upload-browse btn btn-secondary" type="button" style="height:54px;">Ekle</button>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label style="font-size:15px; background-color:white;" disabled>Açıklama*</label>
+                                                    <textarea class="form-control" id="exampleTextarea1" rows="2" placeholder="Açıklama*"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-success">Ekle</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 grid-margin  " id="yaziduzenle">
+                            <div class="card" style="background-color:white ;">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="   color: #C0503C ">Blog Yazı Düzenle</h4>
+                                    <br />
+                                    <form class="forms-sample">
+
+                                        <div class="contact-form-area">
+
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Blog Kategori Adı*</label>
+                                                    <input class="form-control" placeholder="Kategori Adı*">
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Başlık*</label>
+                                                    <input class="form-control" placeholder="Kategori Adı*">
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label style="font-size:15px; background-color:white;">Yazı Fotoğrafı*</label>
+                                                        <input type="file" name="img[]" class="file-upload-default" multiple>
+                                                        <div class="input-group col-xs-6">
+                                                            <input type="text" class="form-control file-upload-info" disabled placeholder="Fotoğraf Seçin">
+                                                            <span class="input-group-append">
+                                                                <button class="file-upload-browse btn  btn-secondary" type="button" style="height: 54px;  ">Yükle</button>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label style="font-size:15px; background-color:white;" disabled>İçerik*</label>
+                                                    <textarea class="form-control" id="exampleTextarea1" rows="2" placeholder="Açıklama*"></textarea>
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+                                        <button type="submit" class="btn btn-success">Değişiklikleri Kaydet</button>
+                                        <button class="btn btn-danger">Sil</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 grid-margin  " id="yaziekle">
+                            <div class="card" style="background-color:white ;">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="   color: #C0503C ">Blog'a Yazı Ekle</h4>
+                                    <br />
+                                    <form class="forms-sample">
+
+                                        <div class="contact-form-area">
+
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Blog Kategori Adı*</label>
+                                                    <input class="form-control" placeholder="Kategori Adı*">
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <label style="font-size:15px; background-color:white;" disabled> Başlık*</label>
+                                                    <input class="form-control" placeholder="Kategori Adı*">
+                                                </div>
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label style="font-size:15px; background-color:white;">Yazı Fotoğrafı*</label>
+                                                        <input type="file" name="img[]" class="file-upload-default" multiple>
+                                                        <div class="input-group col-xs-6">
+                                                            <input type="text" class="form-control file-upload-info" disabled placeholder="Fotoğraf Seçin">
+                                                            <span class="input-group-append">
+                                                                <button class="file-upload-browse btn  btn-secondary" type="button" style="height: 54px;  ">Yükle</button>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label style="font-size:15px; background-color:white;" disabled>İçerik*</label>
+                                                    <textarea class="form-control" id="exampleTextarea1" rows="2" placeholder="Açıklama*"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-success">Ekle</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/PurpleAdmin-Free-Admin-Template-master/assets/vendors/js/vendor.bundle.base.js"></script>
+
+    <script src="~/PurpleAdmin-Free-Admin-Template-master/assets/js/off-canvas.js"></script>
+    <script src="~/PurpleAdmin-Free-Admin-Template-master/assets/js/hoverable-collapse.js"></script>
+    <script src="~/PurpleAdmin-Free-Admin-Template-master/assets/js/misc.js"></script>
+    <script src="~/PurpleAdmin-Free-Admin-Template-master/assets/js/file-upload.js"></script>
+
+</body>
+</html>
+
+
